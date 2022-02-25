@@ -8,7 +8,8 @@ export default class Students extends Component {
     }
 
     AddStudent = () => {
-        this.setState({ name: 'Abd' }, () => { alert(this.state.name) });// callback function, to assure the the state is updated
+        // setState is asynchronus
+        this.setState({ name: 'Abdm' }, () => { alert(this.state.name) });// callback function, to assure the the state is updated
     }
 
     render() {
