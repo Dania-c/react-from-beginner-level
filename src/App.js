@@ -15,7 +15,9 @@ export default class App extends React.Component {
   render() {
     return (
       <>
-        <Students AllStudents={this.state.Students} />
+        <div style={{ backgroundColor: 'red', padding: '1rem' }}>
+          <Students AllStudents={this.state.Students} />
+        </div>
       </>
     );
   }

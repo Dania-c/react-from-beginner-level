@@ -15,7 +15,7 @@ export default class Students extends Component {
     render() {
         console.log('Render');
         return (
-            <div>
+            <div style={{ backgroundColor: 'yellow' }}>
 
                 <ul>
                     {/* {this.state.Students.map((s) => { return (<li key={s.id}>{s.name}</li>) })} */}
