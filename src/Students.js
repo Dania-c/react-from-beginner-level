@@ -1,37 +1,33 @@
 import React, { Component } from 'react';
 
 export default class Students extends Component {
+
     state = {
-        name: 'Rony',
-        email: 'r.rizk@hotmail.com',
-        students: []
+        Students: [
+            { id: 1, name: 'stud1' },
+            { id: 2, name: 'stud2' },
+            { id: 3, name: 'stud3' },
+            { id: 4, name: 'stud4' }
+        ]
     }
 
+    sketchStudents = () => {
+        return (
+            <>
+                {this.state.Students.map((s) => { return (<li key={s.id}>{s.name}</li>) })}
+            </>
+        )
+    }
 
-    AddStudent = () => {
-        // setState is asynchronus
-        this.setState({ name: 'Abdm' }, () => { alert(this.state.name) });// callback function, to assure the the state is updated
-    }
-    AddStudentWithParam = (x) => {
-        // setState is asynchronus
-        this.setState({ name: x }, () => { alert(this.state.name) });// callback function, to assure the the state is updated
-    }
 
     render() {
         console.log('Render');
         return (
             <div>
 
-                <span>{this.state.name}</span><br />
-                <span>{this.state.email}</span><br />
-                {/* <button onClick={() => { this.AddStudent() }}>Add a Student</button> */}
-                <button onClick={this.AddStudent}>Add a Student</button>
-                <button onClick={() => { this.AddStudentWithParam(Date().toString()) }}>see date</button>
-
                 <ul>
-                    <li>st1</li>
-                    <li>st2</li>
-                    <li>st3</li>
+                    {/* {this.state.Students.map((s) => { return (<li key={s.id}>{s.name}</li>) })} */}
+                    {this.sketchStudents()}
                 </ul>
             </div>
 
