@@ -16,15 +16,20 @@ export default class App extends React.Component {
     this.setState({
       Students: [...this.state.Students, { id: uuidv4(), name: s }]
     })
-    alert('A new student has been added' + s)
-
+    alert('A new student has been added : ' + s)
+  }
+  removeStudent = (s) => {
+    alert(s.name + ' will be removed')
+    this.setState({
+      Students: this.state.Students.filter(x => x.id !== s.id) // filter doesn t need spread .. operator cause it does it by default
+    })
   }
   render() {
     return (
       <>
         <div style={{ backgroundColor: 'red', padding: '1rem' }}>
           <AddStudent StudentIsAdded={this.StudentIsAdded} />
-          <Students AllStudents={this.state.Students} />
+          <Students AllStudents={this.state.Students} removeStudent={this.removeStudent} />
         </div>
       </>
     );
