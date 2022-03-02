@@ -19,10 +19,13 @@ export default class App extends React.Component {
     alert('A new student has been added : ' + s)
   }
   removeStudent = (s) => {
-    alert(s.name + ' will be removed')
-    this.setState({
-      Students: this.state.Students.filter(x => x.id !== s.id) // filter doesn t need spread .. operator cause it does it by default
-    })
+    // alert(s.name + ' will be removed')
+    let confirmation = window.confirm("are you sure you want to remove " + s.name);
+    if (confirmation) {
+      this.setState({
+        Students: this.state.Students.filter(x => x.id !== s.id) // filter doesn t need spread .. operator cause it does it by default
+      })
+    }
   }
   render() {
     return (
