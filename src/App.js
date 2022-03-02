@@ -3,6 +3,7 @@ import AddStudent from './AddStudent';
 import './App.css';
 import Students from './Students';
 import { v4 as uuidv4 } from 'uuid';
+import StudentDetails from './StudentDetails';
 export default class App extends React.Component {
   state = {
     Students: [
@@ -10,7 +11,8 @@ export default class App extends React.Component {
       { id: uuidv4(), name: 'stud2' },
       { id: uuidv4(), name: 'stud3' },
       { id: uuidv4(), name: 'stud4' }
-    ]
+    ],
+    selectedStudent: { id: 0, name: '' }
   }
   StudentIsAdded = (s) => {
     this.setState({
@@ -33,6 +35,7 @@ export default class App extends React.Component {
         <div style={{ backgroundColor: 'red', padding: '1rem' }}>
           <AddStudent StudentIsAdded={this.StudentIsAdded} />
           <Students AllStudents={this.state.Students} removeStudent={this.removeStudent} />
+          {this.state.selectedStudent.id !== 0 && <StudentDetails selectedStudent={this.state.selectedStudent} />}
         </div>
       </>
     );
