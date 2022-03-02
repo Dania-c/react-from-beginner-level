@@ -29,12 +29,18 @@ export default class App extends React.Component {
       })
     }
   }
+  getselectedStudent = (s) => {
+    this.setState({
+      selectedStudent: s
+    })
+    alert("hi " + s.name)
+  }
   render() {
     return (
       <>
         <div style={{ backgroundColor: 'red', padding: '1rem' }}>
           <AddStudent StudentIsAdded={this.StudentIsAdded} />
-          <Students AllStudents={this.state.Students} removeStudent={this.removeStudent} />
+          <Students AllStudents={this.state.Students} removeStudent={this.removeStudent} getselectedStudent={this.getselectedStudent} />
           {this.state.selectedStudent.id !== 0 && <StudentDetails selectedStudent={this.state.selectedStudent} />}
         </div>
       </>

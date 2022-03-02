@@ -9,7 +9,7 @@ export default class Students extends Component {
                 {
                     this.props.AllStudents.map((s) => {
                         return (
-                            <li key={s.id}>{s.name}
+                            <li onClick={() => { this.props.getselectedStudent(s) }} key={s.id}>{s.name}
                                 <button onClick={() => this.props.removeStudent(s)}>DEL</button>
                             </li>)
                     })}
