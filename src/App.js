@@ -26,14 +26,15 @@ export default class App extends React.Component {
     if (confirmation) {
       this.setState({
         Students: this.state.Students.filter(x => x.id !== s.id) // filter doesn t need spread .. operator cause it does it by default
-      })
+      }, () => { this.getselectedStudent(null) });
+      // this.getselectedStudent({ id: 0, name: '' })
     }
   }
   getselectedStudent = (s) => {
     this.setState({
       selectedStudent: s
     })
-    alert("hi " + s.name)
+    // alert("hi " + s.name)
   }
   render() {
     return (
@@ -41,7 +42,8 @@ export default class App extends React.Component {
         <div style={{ backgroundColor: 'red', padding: '1rem' }}>
           <AddStudent StudentIsAdded={this.StudentIsAdded} />
           <Students AllStudents={this.state.Students} removeStudent={this.removeStudent} getselectedStudent={this.getselectedStudent} />
-          {this.state.selectedStudent.id !== 0 && <StudentDetails selectedStudent={this.state.selectedStudent} />}
+          {/* {this.state.selectedStudent.id !== 0 && <StudentDetails selectedStudent={this.state.selectedStudent} />} */}
+          <StudentDetails selectedStudent={this.state.selectedStudent} />
         </div>
       </>
     );

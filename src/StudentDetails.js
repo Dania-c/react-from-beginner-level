@@ -1,9 +1,17 @@
 import React, { Component } from 'react'
 
 export default class StudentDetails extends Component {
+    myStyle = {
+        backgroundColor: 'green',
+        color: 'white'
+    }
+
     render() {
-        return (
-            <table>
+        if (this.props.selectedStudent == null) {
+            return (<div style={this.myStyle}>select a student to view details</div>)
+        }
+        else {
+            return (<table style={this.myStyle}>
                 <tr>
                     <td>ID:</td>
                     <td>{this.props.selectedStudent.id}</td>
@@ -11,7 +19,7 @@ export default class StudentDetails extends Component {
                     <td>Name:</td>
                     <td>{this.props.selectedStudent.name}</td>
                 </tr>
-            </table>
-        )
+            </table>)
+        }
     }
 }
