@@ -2,19 +2,19 @@ import React from 'react'
 import AddStudent from './AddStudent';
 import './App.css';
 import Students from './Students';
-
+import { v4 as uuidv4 } from 'uuid';
 export default class App extends React.Component {
   state = {
     Students: [
-      { id: 1, name: 'stud1' },
-      { id: 2, name: 'stud2' },
-      { id: 3, name: 'stud3' },
-      { id: 4, name: 'stud4' }
+      { id: uuidv4(), name: 'stud1' },
+      { id: uuidv4(), name: 'stud2' },
+      { id: uuidv4(), name: 'stud3' },
+      { id: uuidv4(), name: 'stud4' }
     ]
   }
   StudentIsAdded = (s) => {
     this.setState({
-      Students: [...this.state.Students, { id: 555, name: s }]
+      Students: [...this.state.Students, { id: uuidv4(), name: s }]
     })
     alert('A new student has been added' + s)
 
