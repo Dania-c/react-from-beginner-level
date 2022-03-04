@@ -10,6 +10,11 @@ export default class StudentDetails extends Component {
         console.log("constructer of a component is better to be used from the componentDidMount")
         console.log("so it is called the first ever time the component is created")
     }
+    componentDidUpdate() // called when the comp is updated /value or different props
+    {
+        console.log("the component is updated")
+
+    }
     render() {
         if (this.props.selectedStudent == null) {
             return (<div style={this.myStyle}>select a student to view details</div>)
