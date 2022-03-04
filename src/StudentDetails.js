@@ -7,7 +7,7 @@ export default class StudentDetails extends Component {
     }
     componentDidMount() // called once and only once when the comp is created , then on chang state, no
     {
-        console.log("constructer of a component is better to be used from componentDidMount")
+        console.log("constructer of a component is better to be used from the componentDidMount")
     }
     render() {
         if (this.props.selectedStudent == null) {
