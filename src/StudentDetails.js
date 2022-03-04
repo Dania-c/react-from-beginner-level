@@ -13,6 +13,10 @@ export default class StudentDetails extends Component {
     componentDidUpdate() // called when the comp is updated /value or different props
     {
         console.log("the component is updated")
+    }
+    componentWillUnmount()//called when the component is removed from the DOM /or killed
+    {
+        console.log("the component will go")
 
     }
     render() {
