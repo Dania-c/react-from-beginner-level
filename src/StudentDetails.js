@@ -16,8 +16,8 @@ export default class StudentDetails extends Component {
     }
     componentWillUnmount()//called when the component is removed from the DOM /or killed
     {
-        console.log("the component will go")
-
+        console.log("the component will go");
+        alert("comp will unmount");
     }
     render() {
         if (this.props.selectedStudent == null) {
@@ -32,7 +32,14 @@ export default class StudentDetails extends Component {
                         <td>-</td>
                         <td>Name:</td>
                         <td>{this.props.selectedStudent.name}</td>
-                    </tr></tbody>
+                    </tr>
+                    <tr>
+                        <td>Email:</td>
+                        <td>{this.props.selectedStudent.email}</td>
+
+                    </tr>
+
+                </tbody>
             </table>)
         }
     }

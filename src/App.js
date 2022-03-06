@@ -20,7 +20,7 @@ export default class App extends React.Component {
       { id: uuidv4(), name: 'stud3' },
       { id: uuidv4(), name: 'stud4' }
     ],
-    selectedStudent: { id: 0, name: '' }
+    selectedStudent: null//{ id: 0, name: '' }
   }
   StudentIsAdded = (s) => {
     this.setState({
@@ -51,7 +51,7 @@ export default class App extends React.Component {
           <AddStudent StudentIsAdded={this.StudentIsAdded} />
           <Students AllStudents={this.state.Students} removeStudent={this.removeStudent} getselectedStudent={this.getselectedStudent} />
           {/* {this.state.selectedStudent.id !== 0 && <StudentDetails selectedStudent={this.state.selectedStudent} />} */}
-          <StudentDetails selectedStudent={this.state.selectedStudent} />
+          {this.state.selectedStudent && <StudentDetails selectedStudent={this.state.selectedStudent} />}
         </div>
       </>
     );
